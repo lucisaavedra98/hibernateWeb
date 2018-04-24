@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Aplicación JSF</title>
+</h:head>
+<h:body bgcolor="white">
+	
+	<h:form>
+		<h:dataTable var="per" value="#{personasManagedBean.personas}" border="1" >
+			<f:facet name="caption">
+				Mantenimiento de personas
+			</f:facet>
+			<h:column> 
+				<f:facet name="header">
+					Nombre
+				</f:facet> 
+				#{per.nombre} 
+			</h:column>
+			<h:column> 
+				<f:facet name="header">
+					Apellidos
+				</f:facet> 
+				#{per.apellidos} 
+			</h:column>
+			<h:column> 
+				<f:facet name="header">
+					DNI
+				</f:facet> 
+				#{per.dni} 
+			</h:column>
+			<h:column> 
+				<f:facet name="header">
+					Acciones
+				</f:facet> 
+				<h:commandButton value="Eliminar" actionListener="#{personasManagedBean.eliminar(per)}"/> 
+				<h:commandButton value="Modificar" /> 
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+	<h:form>
+		<h:commandButton value="Añadir"/>
+	</h:form>
+</h:body>
+</html>
